@@ -1085,7 +1085,6 @@ def test_workflows_service_v2_beta_transport_auth_adc(transport_class):
     [
         transports.WorkflowsServiceV2BetaGrpcTransport,
         transports.WorkflowsServiceV2BetaGrpcAsyncIOTransport,
-        transports.WorkflowsServiceV2BetaRestTransport,
     ],
 )
 def test_workflows_service_v2_beta_transport_auth_gdch_credentials(transport_class):
