@@ -3,7 +3,7 @@ Python Client for Cloud Life Sciences API
 
 |preview| |pypi| |versions|
 
-`Cloud Life Sciences API`_: 
+`Cloud Life Sciences API`_: is a suite of services and tools for managing, processing, and transforming life sciences data.
 
 - `Client Library Documentation`_
 - `Product Documentation`_
