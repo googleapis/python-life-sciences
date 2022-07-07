@@ -21,14 +21,11 @@ import setuptools
 
 name = "google-cloud-life-sciences"
 description = "Cloud Life Sciences client library"
-version = "0.5.2"
+version = "0.6.0"
 release_status = "Development Status :: 4 - Beta"
 url = "https://github.com/googleapis/python-life-sciences"
 dependencies = [
-    # NOTE: Maintainers, please do not require google-api-core>=2.x.x
-    # Until this issue is closed
-    # https://github.com/googleapis/google-cloud-python/issues/10566
-    "google-api-core[grpc] >= 1.31.5, <3.0.0dev,!=2.0.*,!=2.1.*,!=2.2.*,!=2.3.0",
+    "google-api-core[grpc] >= 2.8.0, <3.0.0dev",
     "proto-plus >= 1.15.0, <2.0.0dev",
     "protobuf >=4.21.1, <4.22.0",
 ]
@@ -65,7 +62,6 @@ setuptools.setup(
         "License :: OSI Approved :: Apache Software License",
         "Programming Language :: Python",
         "Programming Language :: Python :: 3",
-        "Programming Language :: Python :: 3.6",
         "Programming Language :: Python :: 3.7",
         "Programming Language :: Python :: 3.8",
         "Programming Language :: Python :: 3.9",
@@ -75,7 +71,7 @@ setuptools.setup(
     ],
     platforms="Posix; MacOS X; Windows",
     packages=packages,
-    python_requires=">=3.6",
+    python_requires=">=3.7",
     namespace_packages=namespaces,
     install_requires=dependencies,
     include_package_data=True,
