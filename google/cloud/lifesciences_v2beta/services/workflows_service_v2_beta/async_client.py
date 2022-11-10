@@ -16,7 +16,17 @@
 from collections import OrderedDict
 import functools
 import re
-from typing import Dict, Mapping, Optional, Sequence, Tuple, Type, Union
+from typing import (
+    Dict,
+    Mapping,
+    MutableMapping,
+    MutableSequence,
+    Optional,
+    Sequence,
+    Tuple,
+    Type,
+    Union,
+)
 
 from google.api_core import exceptions as core_exceptions
 from google.api_core import gapic_v1
@@ -164,9 +174,9 @@ class WorkflowsServiceV2BetaAsyncClient:
     def __init__(
         self,
         *,
-        credentials: ga_credentials.Credentials = None,
+        credentials: Optional[ga_credentials.Credentials] = None,
         transport: Union[str, WorkflowsServiceV2BetaTransport] = "grpc_asyncio",
-        client_options: ClientOptions = None,
+        client_options: Optional[ClientOptions] = None,
         client_info: gapic_v1.client_info.ClientInfo = DEFAULT_CLIENT_INFO,
     ) -> None:
         """Instantiates the workflows service v2 beta client.
@@ -210,10 +220,10 @@ class WorkflowsServiceV2BetaAsyncClient:
 
     async def run_pipeline(
         self,
-        request: Union[workflows.RunPipelineRequest, dict] = None,
+        request: Optional[Union[workflows.RunPipelineRequest, dict]] = None,
         *,
         retry: OptionalRetry = gapic_v1.method.DEFAULT,
-        timeout: float = None,
+        timeout: Optional[float] = None,
         metadata: Sequence[Tuple[str, str]] = (),
     ) -> operation_async.AsyncOperation:
         r"""Runs a pipeline. The returned Operation's [metadata]
@@ -265,7 +275,7 @@ class WorkflowsServiceV2BetaAsyncClient:
                 print(response)
 
         Args:
-            request (Union[google.cloud.lifesciences_v2beta.types.RunPipelineRequest, dict]):
+            request (Optional[Union[google.cloud.lifesciences_v2beta.types.RunPipelineRequest, dict]]):
                 The request object. The arguments to the `RunPipeline`
                 method. The requesting user must have the
                 `iam.serviceAccounts.actAs` permission for the Cloud
