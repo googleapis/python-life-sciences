@@ -7,7 +7,7 @@
         "google/cloud/lifesciences/gapic_version.py",
         {
           "type": "json",
-          "path": "samples/generated_samples/snippet_metadata_lifesciences_v2beta.json",
+          "path": "samples/generated_samples/snippet_metadata_google.cloud.lifesciences.v2beta.json",
           "jsonpath": "$.clientLibrary.version"
         }
       ]
