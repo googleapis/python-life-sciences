@@ -128,6 +128,14 @@ class Pipeline(proto.Message):
             environment variables but cannot delete an entry
             from this map (though they can overwrite it with
             a different value).
+        encrypted_environment (google.cloud.lifesciences_v2beta.types.Secret):
+            The encrypted environment to pass into every action. Each
+            action can also specify its own encrypted environment.
+
+            The secret must decrypt to a JSON-encoded dictionary where
+            key-value pairs serve as environment variable names and
+            their values. The decoded environment variables can
+            overwrite the values specified by the ``environment`` field.
         timeout (google.protobuf.duration_pb2.Duration):
             The maximum amount of time to give the pipeline to complete.
             This includes the time spent waiting for a worker to be
@@ -152,6 +160,11 @@ class Pipeline(proto.Message):
         proto.STRING,
         proto.STRING,
         number=3,
+    )
+    encrypted_environment: "Secret" = proto.Field(
+        proto.MESSAGE,
+        number=5,
+        message="Secret",
     )
     timeout: duration_pb2.Duration = proto.Field(
         proto.MESSAGE,
@@ -219,6 +232,16 @@ class Action(proto.Message):
             of the last non-background action that executed. This can be
             used by workflow engine authors to determine whether an
             individual action has succeeded or failed.
+        encrypted_environment (google.cloud.lifesciences_v2beta.types.Secret):
+            The encrypted environment to pass into the container. This
+            environment is merged with values specified in the
+            [google.cloud.lifesciences.v2beta.Pipeline][google.cloud.lifesciences.v2beta.Pipeline]
+            message, overwriting any duplicate values.
+
+            The secret must decrypt to a JSON-encoded dictionary where
+            key-value pairs serve as environment variable names and
+            their values. The decoded environment variables can
+            overwrite the values specified by the ``environment`` field.
         pid_namespace (str):
             An optional identifier for a PID namespace to
             run the action inside. Multiple actions should
@@ -347,6 +370,11 @@ class Action(proto.Message):
         proto.STRING,
         proto.STRING,
         number=5,
+    )
+    encrypted_environment: "Secret" = proto.Field(
+        proto.MESSAGE,
+        number=21,
+        message="Secret",
     )
     pid_namespace: str = proto.Field(
         proto.STRING,
@@ -601,6 +629,10 @@ class VirtualMachine(proto.Message):
 
             Specify either the ``volumes[]`` field or the ``disks[]``
             field, but not both.
+        reservation (str):
+            If specified, the VM will only be allocated
+            inside the matching reservation. It will fail if
+            the VM parameters don't match the reservation.
     """
 
     machine_type: str = proto.Field(
@@ -664,6 +696,10 @@ class VirtualMachine(proto.Message):
         proto.MESSAGE,
         number=14,
         message="Volume",
+    )
+    reservation: str = proto.Field(
+        proto.STRING,
+        number=15,
     )
 
 
